@@ -8,9 +8,8 @@ let estado = {
 
 const synth = window.speechSynthesis;
 
-// ==========================================
 // CONTROLE DO PAINEL
-// ==========================================
+
 function AlternarPainel() {
     const painel = document.getElementById('painel-lateral');
     const isAberto = painel.classList.contains('aberto');
@@ -24,9 +23,9 @@ function AlternarPainel() {
     }
 }
 
-// ==========================================
+
 // AS 8 FUNÇÕES DE ACESSIBILIDADE
-// ==========================================
+
 function AumentarTexto() {
     if (estado.tamanhoFonte < 160) {
         estado.tamanhoFonte += 10;
@@ -101,9 +100,9 @@ function PararLeitura() {
     }
 }
 
-// ==========================================
+
 // RESTAURAR CONFIGURAÇÕES
-// ==========================================
+
 function Restaurar() {
     estado.tamanhoFonte = 100;
     document.documentElement.style.fontSize = "100%";

@@ -1,6 +1,4 @@
-/* ==========================================================================
-   RESET & VARIÁVEIS GLOBAIS (Design System baseado na Logo fornecida)
-   ========================================================================== */
+/* RESET & VARIÁVEIS GLOBAIS (Design System baseado na Logo fornecida)*/
 :root {
     /* Cores neutras de fundo e texto */
     --bg-primary: #FFFFFF;
@@ -113,9 +111,7 @@ p {
     background-clip: text;
 }
 
-/* ==========================================================================
-   CABEÇALHO E NAVEGAÇÃO
-   ========================================================================== */
+/*CABEÇALHO E NAVEGAÇÃO*/
 .site-header {
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px);
@@ -197,9 +193,7 @@ p {
     color: white !important;
 }
 
-/* ==========================================================================
-   BOTÃO FLUTUANTE (Gradiente Blue/Teal)
-   ========================================================================== */
+/*BOTÃO FLUTUANTE (Gradiente Blue/Teal)*/
 .btn-flutuante {
     position: fixed;
     right: 0;
@@ -230,9 +224,7 @@ p {
     padding-right: 10px;
 }
 
-/* ==========================================================================
-   PAINEL DE ACESSIBILIDADE
-   ========================================================================== */
+/*PAINEL DE ACESSIBILIDADE*/
 .painel-acessibilidade {
     position: fixed;
     top: 0;
@@ -376,9 +368,7 @@ p {
     background: #334155;
 }
 
-/* ==========================================================================
-   HERO SECTION (UI/UX Clean)
-   ========================================================================== */
+/* HERO SECTION (UI/UX Clean)*/
 .hero-section {
     padding: 6rem 0 4rem 0;
     overflow: hidden;
@@ -464,9 +454,7 @@ p {
     width: 100%;
 }
 
-/* ==========================================================================
-   SEÇÃO CARDS (Grid Clean)
-   ========================================================================== */
+/* SEÇÃO CARDS (Grid Clean)*/
 .content-section {
     padding: 8rem 0;
 }
@@ -552,7 +540,7 @@ p {
 .site-footer {
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
-    padding: 4rem 0;
+    padding: 2rem 0;
     text-align: center;
 }
 
@@ -579,9 +567,7 @@ p {
     filter: grayscale(0%);
 }
 
-/* ==========================================================================
-   CLASSES DINÂMICAS DO JAVASCRIPT (Alto Contraste etc.)
-   ========================================================================== */
+/*  CLASSES DINÂMICAS DO JAVASCRIPT (Alto Contraste etc.) */
 body.alto-contraste {
     --bg-primary: #020617;
     --bg-secondary: #0F172A;
