@@ -1,186 +1,336 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inclusão Digital - Experiências para Todos</title>
-    
-    <!-- Pré-conexão para fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/open-dyslexic" rel="stylesheet">
 
-    <!-- CSS do Projeto -->
+    <title>Acessibilidade para Todos</title>
+
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Ícones Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
 
-    <!-- CABEÇALHO PROFISSIONAL -->
-    <header class="site-header">
-        <div class="header-container">
-            <div class="logo-area">
-                <!-- AQUI ENTRA A LOGO QUE VOCÊ GEROU -->
-                <img src="assets/logos/logo.jpeg" alt="Logo circular nas cores azul e ciano representando inclusão" class="img-logo">
-                <span class="logo-text">Inclusão<span class="destaque-teal">Digital</span></span>
-            </div>
-            <nav class="main-nav" aria-label="Navegação principal">
-                <ul>
-                    <li><a href="#inicio">Visão Geral</a></li>
-                    <li><a href="#beneficios">Benefícios</a></li>
-                    <li><a href="#impacto">O Impacto</a></li>
-                </ul>
-                <a href="#impacto" class="btn-primary-outline">Testar Acessibilidade</a>
-            </nav>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <div class="logo">
+            <span>ACESSI</span>
+            <strong>+</strong>
         </div>
+
+        <nav class="menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#importancia">Importância</a>
+        </nav>
+
+        <button class="botao-acessibilidade"
+                onclick="AlternarPainel()"
+                aria-label="Abrir painel de acessibilidade">
+            Acessibilidade
+        </button>
+
     </header>
 
-    <!-- BOTÃO FLUTUANTE DO PAINEL -->
-    <button id="btn-flutuante-acessibilidade" class="btn-flutuante" onclick="AlternarPainel()" aria-label="Abrir opções de acessibilidade">
-        <i data-lucide="accessibility" class="icon-floating"></i>
-    </button>
 
-    <!-- PAINEL DE ACESSIBILIDADE OCULTO -->
-    <aside id="painel-lateral" class="painel-acessibilidade" aria-label="Painel de controle de acessibilidade" aria-hidden="true">
-        <div class="container-painel">
-            <section class="topo-painel">
-                <div class="lado-esquerdo">
-                    <img src="assets/logos/logo.jpeg" alt="Logo" class="img-logo-painel">
-                </div>
-                <div class="lado-direito">
-                    <h2>Acessibilidade</h2>
-                    <p>Personalize sua interface</p>
-                </div>
-                <button class="btn-fechar" onclick="AlternarPainel()" aria-label="Fechar painel">
-                    <i data-lucide="x"></i>
-                </button>
-            </section>
-            
-            <section id="botoes" class="acb">
-                <h3>Ajustes Visuais</h3>
-                <div class="grid-botoes">
-                    <button class="btn-acess" onclick="AumentarTexto()" aria-label="Aumentar tamanho do texto">
-                        <i data-lucide="a-large-small"></i> <span class="btn-text">Aumentar (A+)</span>
-                    </button>
-                    <button class="btn-acess" onclick="DiminuirTexto()" aria-label="Diminuir tamanho do texto">
-                        <i data-lucide="a-small-large"></i> <span class="btn-text">Diminuir (A-)</span>
-                    </button>
-    
-                    <button class="btn-acess" onclick="AlternarContraste()" aria-label="Ativar alto contraste">
-                        <i data-lucide="contrast"></i> <span class="btn-text">Alto Contraste</span>
-                    </button>
-                    <button class="btn-acess" onclick="TrocarFonte()" aria-label="Trocar para fonte amigável à dislexia">
-                        <i data-lucide="type"></i> <span class="btn-text">Fonte Legível</span>
-                    </button>
-    
-                    <button class="btn-acess" onclick="PausarAnimacao()" aria-label="Pausar animações do site">
-                        <i data-lucide="pause-circle"></i> <span class="btn-text">Parar Animação</span>
-                    </button>
-                    <button class="btn-acess" onclick="LinhaLeitura()" aria-label="Ativar linha guia de leitura">
-                        <i data-lucide="align-horizontal-justify-center"></i> <span class="btn-text">Linha de Foco</span>
-                    </button>
-                </div>
-    
-                <h3>Assistência por Voz</h3>
-                <div class="grid-botoes">
-                    <button class="btn-acess btn-leitura" onclick="IniciarLeitura()" aria-label="Iniciar leitura da página em voz alta">
-                        <i data-lucide="volume-2"></i> <span class="btn-text">Ouvir Texto</span>
-                    </button>
-                    <button class="btn-acess btn-parar" onclick="PararLeitura()" aria-label="Parar a leitura da página">
-                        <i data-lucide="volume-x"></i> <span class="btn-text">Parar Áudio</span>
-                    </button>
-                </div>
-            </section>
-            <button class="btn-restaurar" type="button" onclick="Restaurar()" aria-label="Restaurar configurações originais">
-                <i data-lucide="refresh-cw"></i> Restaurar Padrões
+    <!-- PAINEL DE ACESSIBILIDADE -->
+    <aside id="painel-lateral"
+           class="painel-lateral"
+           aria-hidden="true">
+
+        <div class="painel-topo">
+
+            <h2>Acessibilidade</h2>
+
+            <button onclick="AlternarPainel()"
+                    aria-label="Fechar painel">
+                ×
             </button>
+
         </div>
+
+        <p class="descricao-painel">
+            Escolha uma opção para adaptar a página às suas necessidades.
+        </p>
+
+
+        <div class="botoes-acessibilidade">
+
+            <button onclick="AumentarTexto()">
+                🔎 Aumentar texto
+            </button>
+
+            <button onclick="DiminuirTexto()">
+                🔍 Diminuir texto
+            </button>
+
+            <button onclick="AlternarContraste()">
+                ◐ Alto contraste
+            </button>
+
+            <button onclick="TrocarFonte()">
+                Aa Fonte acessível
+            </button>
+
+            <button onclick="PausarAnimacao()">
+                ⏸ Pausar animações
+            </button>
+
+            <button onclick="LinhaLeitura()">
+                ━ Guia de leitura
+            </button>
+
+            <button onclick="IniciarLeitura()">
+                🔊 Ler página
+            </button>
+
+            <button onclick="PararLeitura()">
+                ⏹ Parar leitura
+            </button>
+
+            <button onclick="Restaurar()" class="botao-restaurar">
+                ↻ Restaurar configurações
+            </button>
+
+        </div>
+
     </aside>
 
-    <!-- CONTEÚDO PRINCIPAL (UI/UX Behance Style) -->
+
+    <!-- CONTEÚDO PRINCIPAL -->
     <main id="conteudo-principal">
-        
-        <!-- Hero Section -->
-        <section id="inicio" class="hero-section">
-            <div class="wrapper hero-grid">
-                <div class="hero-content">
-                    <h1>Uma internet que respeita <span class="text-gradient">todas as pessoas.</span></h1>
-                    <p class="subtitle">Quando um site não oferece acessibilidade, tarefas simples como ler uma notícia ou fazer uma compra podem se tornar barreiras. Adaptar a internet é devolver autonomia e dignidade a pessoas com deficiência para que possam viver o dia a dia também no ambiente digital.</p>
-                    <div class="hero-actions">
-                        <button class="btn-primary" onclick="AlternarPainel()">Abrir Painel</button>
-                        <a href="#beneficios" class="btn-secondary">Entender os Benefícios</a>
-                    </div>
-                </div>
-                <div class="hero-image-container">
-                    <div class="image-backdrop"></div>
-                    <!-- Imagem representando diversidade no uso da tecnologia -->
-                    <img src="assets/img/tecnologia-assistiva-na-educacao.jpg" alt="Criança usando tecnologia assistiva em uma sala de aula" class="img-hero">
-                </div>
+
+        <!-- INÍCIO -->
+        <section id="inicio" class="hero">
+
+            <div class="hero-texto">
+
+                <span class="etiqueta">
+                    TECNOLOGIA E INCLUSÃO
+                </span>
+
+                <h1>
+                    Acessibilidade para todos
+                </h1>
+
+                <p>
+                    A tecnologia deve ser acessível para todas as pessoas.
+                    Este projeto apresenta recursos digitais que tornam
+                    a navegação mais simples, confortável e inclusiva.
+                </p>
+
+                <a href="#recursos" class="botao-principal">
+                    Conhecer recursos
+                </a>
+
             </div>
+
+            <div class="hero-imagem">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwv-xZKb2VCrYkoCnFMVrNGfjlnPmec9JiUPAPcQPZHw&s=10"
+                     alt="Menino estudando e escrevendo em uma mesa">
+
+            </div>
+
         </section>
 
-        <!-- Seção: 4 Information Cards (Grid Clean) -->
-        <section id="beneficios" class="content-section bg-light">
-            <div class="wrapper">
-                <div class="section-header">
-                    <h2>A internet precisa incluir cada pessoa</h2>
-                    <p>Pessoas com deficiência encontram obstáculos digitais todos os dias. Acessibilidade é uma necessidade para que cada uma possa buscar informação, se comunicar e realizar tarefas com independência.</p>
+
+        <!-- SOBRE -->
+        <section id="sobre" class="secao">
+
+            <div class="titulo-secao">
+
+                <span>01</span>
+
+                <div>
+                    <h2>O que é acessibilidade digital?</h2>
+
+                    <p>
+                        A acessibilidade digital permite que pessoas com
+                        diferentes necessidades possam utilizar sites,
+                        aplicativos e sistemas com mais autonomia.
+                    </p>
                 </div>
-                
-                <div class="cards-grid">
-                    <article class="card-ux">
-                        <div class="card-icon-wrapper blue"><i data-lucide="eye" class="card-icon"></i></div>
-                        <h3>Pessoas com baixa visão e daltonismo</h3>
-                        <p>Textos pequenos, baixo contraste e informações transmitidas apenas por cores podem impedir que essas pessoas leiam uma notícia ou encontrem detalhes importantes antes de uma compra. A internet precisa oferecer texto ampliável, contraste adequado e outras formas de distinguir informações.</p>
-                    </article>
 
-                    <article class="card-ux">
-                        <div class="card-icon-wrapper teal"><i data-lucide="book-open" class="card-icon"></i></div>
-                        <h3>Pessoas com dislexia</h3>
-                        <p>Blocos longos, fontes difíceis de ler e instruções confusas podem tornar cansativo acompanhar uma notícia ou entender as etapas de uma compra. A internet precisa oferecer leitura clara, conteúdo bem organizado e opções que ajudem cada pessoa a compreender no próprio ritmo.</p>
-                    </article>
-
-                    <article class="card-ux">
-                        <div class="card-icon-wrapper blue"><i data-lucide="focus" class="card-icon"></i></div>
-                        <h3>Pessoas com TDAH e sensibilidade sensorial</h3>
-                        <p>Animações, alertas e elementos que mudam sem parar podem desviar a atenção ou causar desconforto, dificultando ler uma notícia ou concluir uma compra. A internet precisa permitir controlar movimentos e estímulos e acompanhar o conteúdo sem interrupções excessivas.</p>
-                    </article>
-
-                    <article class="card-ux">
-                        <div class="card-icon-wrapper teal"><i data-lucide="mouse-pointer-2" class="card-icon"></i></div>
-                        <h3>Pessoas com limitações motoras</h3>
-                        <p>Usar um mouse, tocar em alvos pequenos ou executar gestos precisos pode ser difícil para pessoas com limitações motoras severas ou temporárias. A internet precisa permitir navegar e concluir tarefas com teclado, comandos assistivos e controles fáceis de acionar.</p>
-                    </article>
-                </div>
             </div>
+
+            <div class="caixas">
+
+                <article class="caixa">
+                    <h3>Inclusão</h3>
+
+                    <p>
+                        Garante que diferentes pessoas possam acessar
+                        conteúdos e serviços digitais.
+                    </p>
+                </article>
+
+                <article class="caixa">
+                    <h3>Autonomia</h3>
+
+                    <p>
+                        Facilita o uso das tecnologias sem depender
+                        constantemente de outras pessoas.
+                    </p>
+                </article>
+
+                <article class="caixa">
+                    <h3>Usabilidade</h3>
+
+                    <p>
+                        Torna a navegação mais simples, clara e confortável.
+                    </p>
+                </article>
+
+            </div>
+
         </section>
 
-        <!-- Seção: Impacto -->
-        <section id="impacto" class="content-section cta-section">
-            <div class="wrapper text-center">
-                <h2>Acessibilidade transforma o cotidiano</h2>
-                <p class="max-w-texto">Com recursos acessíveis, mais pessoas podem ler, se informar e fazer compras com autonomia, sem depender de ajuda para cada etapa. Use o painel para experimentar opções que tornam esta página mais confortável e acessível para você.</p>
+
+        <!-- RECURSOS -->
+        <section id="recursos" class="secao recursos">
+
+            <div class="titulo-centralizado">
+
+                <span>02</span>
+
+                <h2>Recursos de acessibilidade</h2>
+
+                <p>
+                    O painel oferece ferramentas para adaptar a experiência
+                    de navegação conforme as necessidades do usuário.
+                </p>
+
             </div>
+
+
+            <div class="grade-recursos">
+
+                <article class="recurso">
+                    <div class="icone">A+</div>
+                    <h3>Tamanho do texto</h3>
+                    <p>
+                        Permite aumentar ou diminuir o tamanho das letras.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">◐</div>
+                    <h3>Alto contraste</h3>
+                    <p>
+                        Melhora a visualização através de maior contraste.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">Aa</div>
+                    <h3>Fonte acessível</h3>
+                    <p>
+                        Altera a fonte para facilitar a leitura.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">⏸</div>
+                    <h3>Pausar animações</h3>
+                    <p>
+                        Permite interromper efeitos e animações da página.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">━</div>
+                    <h3>Guia de leitura</h3>
+                    <p>
+                        Cria uma linha que acompanha o movimento do mouse.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">🔊</div>
+                    <h3>Leitura de texto</h3>
+                    <p>
+                        Utiliza a síntese de voz para ler o conteúdo.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">⏹</div>
+                    <h3>Parar leitura</h3>
+                    <p>
+                        Interrompe a leitura automática da página.
+                    </p>
+                </article>
+
+
+                <article class="recurso">
+                    <div class="icone">↻</div>
+                    <h3>Restaurar</h3>
+                    <p>
+                        Retorna as configurações para o estado original.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- IMPORTÂNCIA -->
+        <section id="importancia" class="secao importancia">
+
+            <div>
+
+                <span class="etiqueta">
+                    ACESSIBILIDADE DIGITAL
+                </span>
+
+                <h2>
+                    Tecnologia deve aproximar, não criar barreiras.
+                </h2>
+
+                <p>
+                    Desenvolver páginas acessíveis contribui para uma
+                    internet mais democrática e permite que mais pessoas
+                    tenham acesso à informação e aos serviços digitais.
+                </p>
+
+            </div>
+
         </section>
 
     </main>
 
-    <!-- RODAPÉ PROFISSIONAL -->
-    <footer class="site-footer">
-        <div class="wrapper">
-            <div class="footer-content">
-                <img src="assets/logos/logo.jpeg" alt="Logo" class="img-logo-footer">
-                <p>&copy; 2026 Inclusão Digital. Todos os direitos reservados.</p>
-            </div>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <div>
+            <strong>Acessibilidade para Todos</strong>
+
+            <p>
+                Projeto desenvolvido para promover inclusão digital.
+            </p>
         </div>
+
+        <p>
+            © 2026 - Todos os direitos reservados.
+        </p>
+
     </footer>
 
-    <!-- Inicialização dos ícones -->
-    <script>lucide.createIcons();</script>
+
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
